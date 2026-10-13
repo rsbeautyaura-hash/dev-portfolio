@@ -1,21 +1,599 @@
 
+<
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Developer Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Premium Portfolio</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+:root {
+  --bg: #070914;
+  --card: #11162b;
+  --cyan: #58f0ff;
+  --purple: #a78bfa;
+  --pink: #ff65c3;
+  --text: #f4f7ff;
+  --muted: #a8b2cc;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, #25204b, transparent 35%),
+    radial-gradient(circle at right, #092a3c, transparent 30%),
+    var(--bg);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #070914e8;
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid #ffffff20;
+}
+
+nav {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--cyan);
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--cyan);
+  text-shadow: 0 0 12px var(--cyan);
+}
+
+.hero {
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  gap: 30px;
+  padding: 65px 0;
+}
+
+.badge {
+  display: inline-block;
+  color: var(--cyan);
+  background: #58f0ff12;
+  border: 1px solid #58f0ff55;
+  padding: 6px 13px;
+  border-radius: 30px;
+  font-size: 13px;
+}
+
+h1 {
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.1;
+  margin: 22px 0;
+}
+
+.gradient {
+  color: transparent;
+  background: linear-gradient(
+    90deg, var(--cyan), var(--purple), var(--pink)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+p {
+  color: var(--muted);
+}
+
+.hero p {
+  max-width: 570px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 19px;
+  border: 1px solid #ffffff30;
+  border-radius: 11px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, var(--cyan), #b9caff);
+  color: #061019;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px #58f0ff55;
+}
+
+.visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 310px;
+}
+
+.orbit {
+  position: absolute;
+  width: 270px;
+  aspect-ratio: 1;
+  border: 1px solid #58f0ff70;
+  border-radius: 50%;
+  animation: rotate 15s linear infinite;
+}
+
+.orbit::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 20px var(--cyan);
+}
+
+.orbit.two {
+  width: 205px;
+  border-color: #a78bfa88;
+  animation-direction: reverse;
+  animation-duration: 10s;
+}
+
+.code-icon {
+  width: 130px;
+  height: 130px;
+  display: grid;
+  place-items: center;
+  font-size: 38px;
+  font-weight: bold;
+  border-radius: 32px;
+  background: linear-gradient(135deg, #58f0ff30, #a78bfa30);
+  border: 1px solid #ffffff30;
+  box-shadow: 0 0 55px #58f0ff30;
+  animation: float 4s ease-in-out infinite;
+}
+
+section {
+  padding: 60px 0;
+  scroll-margin-top: 75px;
+}
+
+.kicker {
+  color: var(--purple);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 8px 0 18px;
+}
+
+.panel {
+  padding: 25px;
+  border-radius: 18px;
+  background: #11162bd9;
+  border: 1px solid #ffffff20;
+  backdrop-filter: blur(12px);
+  transition: .3s;
+}
+
+.panel:hover {
+  border-color: #58f0ff80;
+  box-shadow: 0 0 25px #58f0ff18;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.icon {
+  font-size: 28px;
+  color: var(--cyan);
+  margin-bottom: 8px;
+}
+
+.panel h3 {
+  margin-bottom: 8px;
+}
+
+.panel p {
+  font-size: 14px;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  min-height: 225px;
+}
+
+.project p {
+  flex: 1;
+  margin-bottom: 18px;
+}
+
+.project a {
+  color: var(--cyan);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.tags {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.tags span {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #ffffff0d;
+  color: #d5e0fa;
+}
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+footer {
+  padding: 25px 0;
+  border-top: 1px solid #ffffff20;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: .7s;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .visual {
+    min-height: 270px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  nav {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 13px 0;
+  }
+
+  .nav-links {
+    gap: 13px;
+    font-size: 13px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .orbit {
+    width: 235px;
+  }
+
+  .orbit.two {
+    width: 185px;
+  }
+
+  .code-icon {
+    width: 115px;
+    height: 115px;
+  }
+
+  section {
+    padding: 42px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="container">
+    <a class="logo" href="#home">DEV<span style="color:white">PORTFOLIO</span></a>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero container" id="home">
+  <div>
+    <span class="badge">● STUDENT DEVELOPER</span>
+
+    <h1>
+      Building the<br>
+      <span class="gradient">digital future.</span>
+    </h1>
+
+    <p>
+      Hey, I'm <strong style="color:white">Your Name</strong>.
+      I'm learning web development and creating useful,
+      creative and responsive websites.
+    </p>
+
+    <div class="buttons">
+      <a class="btn primary" href="#projects">Explore Projects ↗</a>
+      <a class="btn" href="#contact">Contact Me</a>
+    </div>
+  </div>
+
+  <div class="visual">
+    <div class="orbit"></div>
+    <div class="orbit two"></div>
+    <div class="code-icon">&lt;/&gt;</div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container reveal">
+    <div class="kicker">Who I am</div>
+    <h2>Curious mind. Creative code.</h2>
+
+    <div class="panel">
+      I'm a student developer learning one project at a time.
+      I enjoy experimenting with design, solving problems and
+      improving my coding skills every day.
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container reveal">
+    <div class="kicker">My toolkit</div>
+    <h2>Skills & Technologies</h2>
+    <p style="margin-bottom:25px">
+      The tools I'm learning and practising.
+    </p>
+
+    <div class="grid">
+      <article class="panel">
+        <div class="icon">⌘</div>
+        <h3>HTML5</h3>
+        <p>Building clear website structures.</p>
+      </article>
+
+      <article class="panel">
+        <div class="icon">✦</div>
+        <h3>CSS3</h3>
+        <p>Designing layouts, animations and effects.</p>
+      </article>
+
+      <article class="panel">
+        <div class="icon">⚡</div>
+        <h3>JavaScript</h3>
+        <p>Learning logic and website interactivity.</p>
+      </article>
+
+      <article class="panel">
+        <div class="icon">▣</div>
+        <h3>Responsive UI</h3>
+        <p>Making websites work on mobile screens.</p>
+      </article>
+
+      <article class="panel">
+        <div class="icon">⌁</div>
+        <h3>GitHub</h3>
+        <p>Saving code and publishing websites.</p>
+      </article>
+
+      <article class="panel">
+        <div class="icon">◉</div>
+        <h3>Python Basics</h3>
+        <p>Practising programming fundamentals.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container reveal">
+    <div class="kicker">Selected work</div>
+    <h2>Featured Projects</h2>
+    <p style="margin-bottom:25px">
+      Replace the sample links with your real projects.
+    </p>
+
+    <div class="grid">
+      <article class="panel project">
+        <div class="icon">⌘</div>
+        <h3>Developer Portfolio</h3>
+        <p>A personal website showcasing my skills and learning journey.</p>
+        <div class="tags"><span>HTML</span><span>CSS</span></div>
+        <a href="#home">Explore Project ↗</a>
+      </article>
+
+      <article class="panel project">
+        <div class="icon">▸</div>
+        <h3>Mini Web Game</h3>
+        <p>A browser game made while practising JavaScript.</p>
+        <div class="tags"><span>HTML</span><span>JavaScript</span></div>
+        <a href="#home">Explore Project ↗</a>
+      </article>
+
+      <article class="panel project">
+        <div class="icon">✧</div>
+        <h3>Next Big Idea</h3>
+        <p>A space for the next website, tool or coding experiment.</p>
+        <div class="tags"><span>Learning</span><span>Building</span></div>
+        <a href="#home">Explore Project ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container reveal">
+    <div class="panel contact">
+      <div>
+        <div class="kicker">Have an idea?</div>
+        <h2>Let's build something.</h2>
+        <p>Visit my GitHub to follow my coding journey.</p>
+      </div>
+
+      <a class="btn primary"
+         href="https://github.com/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Visit GitHub ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <span>© <span id="year"></span> Your Name. Built with curiosity.</span>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+const sections = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  sections.forEach(section => observer.observe(section));
+} else {
+  sections.forEach(section => section.classList.add("show"));
+}
+</script>
+
+</body>
+</html>
+
 
     body {
       font-family: Arial, sans-serif;
